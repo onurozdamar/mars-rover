@@ -1,0 +1,15 @@
+/Users/onurozdamar/mars-rower/bin/Debug/net5.0/mars-rower.deps.json
+/Users/onurozdamar/mars-rower/bin/Debug/net5.0/mars-rower.runtimeconfig.json
+/Users/onurozdamar/mars-rower/bin/Debug/net5.0/mars-rower.runtimeconfig.dev.json
+/Users/onurozdamar/mars-rower/bin/Debug/net5.0/mars-rower.dll
+/Users/onurozdamar/mars-rower/bin/Debug/net5.0/ref/mars-rower.dll
+/Users/onurozdamar/mars-rower/bin/Debug/net5.0/mars-rower.pdb
+/Users/onurozdamar/mars-rower/obj/Debug/net5.0/mars-rower.csproj.AssemblyReference.cache
+/Users/onurozdamar/mars-rower/obj/Debug/net5.0/mars-rower.GeneratedMSBuildEditorConfig.editorconfig
+/Users/onurozdamar/mars-rower/obj/Debug/net5.0/mars-rower.AssemblyInfoInputs.cache
+/Users/onurozdamar/mars-rower/obj/Debug/net5.0/mars-rower.AssemblyInfo.cs
+/Users/onurozdamar/mars-rower/obj/Debug/net5.0/mars-rower.csproj.CoreCompileInputs.cache
+/Users/onurozdamar/mars-rower/obj/Debug/net5.0/mars-rower.dll
+/Users/onurozdamar/mars-rower/obj/Debug/net5.0/ref/mars-rower.dll
+/Users/onurozdamar/mars-rower/obj/Debug/net5.0/mars-rower.pdb
+/Users/onurozdamar/mars-rower/obj/Debug/net5.0/mars-rower.genruntimeconfig.cache
