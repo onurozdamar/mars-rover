@@ -5,9 +5,9 @@ namespace mars_rower
     public enum Direction
     {
         N = 6,
-        E = 5,
-        S = 3,
-        W = 0,
+        S = 9,
+        E = 15,
+        W = 29,
     }
 
     public enum Move
@@ -17,29 +17,120 @@ namespace mars_rower
         R = 15,
     }
 
-    class Position
+    public class Position
     {
-        public int x { get; set; }
-        public int y { get; set; }
-        public Direction direction { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public Direction Direction { get; set; }
+
+        public Position(){
+
+        }
+
+        public Position(int x, int y, Direction direction){
+            this.X = x;
+            this.Y = y;
+            this.Direction = direction;
+        }
+
+        public override String ToString() {
+            return "(" + X + ", " + Y + ", " + Direction + ")";
+        }
+    }
+
+    public class Astronaut
+    {
+        private Position Position { get; set; }
+        private int directionIndex = 0;
+
+        public Astronaut(int x, int y, Direction direction) {
+            Position = new Position(x,y,direction);
+        }
+
+        public void Move(String moveCommand) {
+            foreach (var item in moveCommand)
+            {
+                switch (item)
+                {
+                    case 'M':
+                    case 'm':
+                        Move();
+                        break;
+                    case 'L':
+                    case 'l':
+                        Rotate(-1);
+                        break;
+                    case 'R':
+                    case 'r':
+                        Rotate(1);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
+        }
+
+        private void Move() {
+            switch (Position.Direction)
+            {
+                case Direction.N:
+                    Position.X++;
+                    break;
+                case Direction.S:
+                    Position.X--;
+                    break;
+                case Direction.W:
+                    Position.Y++;
+                    break;
+                case Direction.E:
+                    Position.Y--;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void Rotate(int right) {
+            directionIndex += right;
+            Position.Direction = GetDirection<Direction>(directionIndex);
+        }
+
+         private T GetDirection<T>(int index){
+            var valuesAsArray = (T[])Enum.GetValues(typeof(T));
+            int length = valuesAsArray.Length;
+            int shrinkIndex = index >= 0 ? index % length: length - 1 - Math.Abs(index) % length;
+            return (T)valuesAsArray[shrinkIndex];
+        }
+        
+        public override String ToString() {
+            return Position.ToString() + "";
+        }
     }
 
     class Program
     {
-        
-
-        public T GetDirection<T>(int index){
-            var valuesAsArray = (T[])Enum.GetValues(typeof(T));
-            int length = valuesAsArray.Length;
-            int shrinkIndex = index >= 0 ? index % length: (length - Math.Abs(index)) % length;
-            return (T)valuesAsArray[shrinkIndex];
-        }
        
         static void Main(string[] args)
         {
             Program p = new Program();
 
-            Console.WriteLine(p.GetDirection<Direction>(-1));
+            String move = "";
+
+            Astronaut astronaut = new Astronaut(1, 2, Direction.N);
+
+            Console.WriteLine("ilk konum:" + astronaut);
+
+            while (!move.Equals("Q") && !move.Equals("q"))
+            {
+                Console.WriteLine("Çıkmak için q'ya basın ya da hareket komutu girin.");
+                move = Console.ReadLine();
+                Console.WriteLine(move + " bastınız.");
+                astronaut.Move(move);
+                Console.WriteLine("son konum:" + astronaut);
+            }
+
+            Console.WriteLine("son");
         }
     }
 }
