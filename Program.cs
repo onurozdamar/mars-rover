@@ -113,13 +113,27 @@ namespace mars_rower
        
         static void Main(string[] args)
         {
-            Program p = new Program();
+
+            CircularLinkedListManager cllManager = new CircularLinkedListManager();
+            cllManager.Add("N", pos => {
+                pos.X++;
+                return pos;
+            });
+            cllManager.Add("S", pos => {
+                pos.X--;
+                return pos;
+            });
+            cllManager.Add("W", pos => {
+                pos.Y++;
+                return pos;
+            });
+            cllManager.Add("E", pos => {
+                pos.Y--;
+                return pos;
+            });
 
             String move = "";
-
             Astronaut astronaut = new Astronaut(1, 2, Direction.N);
-
-            Console.WriteLine("ilk konum:" + astronaut);
 
             while (!move.Equals("Q") && !move.Equals("q"))
             {
