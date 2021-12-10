@@ -70,7 +70,7 @@ namespace mars_rower
             return node.Next;
         }
 
-        public CircularLinkedList Prev() 
+        public CircularLinkedList Prev()
         {
             return node.Prev;
         }
